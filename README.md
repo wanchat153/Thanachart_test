@@ -191,10 +191,6 @@ npm run build         # next build
 ## เอกสารเพิ่มเติม
 
 - [docs/BRD.md](docs/BRD.md) — ข้อกำหนดทางธุรกิจฉบับเต็ม (กฎธุรกิจ · FR · traceability matrix)
-- [CLAUDE.md](CLAUDE.md) — แผนที่โปรเจคสำหรับ AI agent และทีม dev
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — สถาปัตยกรรมเชิงลึก
-- [docs/DATABASE.md](docs/DATABASE.md) — schema เชิงลึก
-- [docs/ENGINEERING-ROADMAP.md](docs/ENGINEERING-ROADMAP.md) — แผนยกระดับ
 
 ---
 
