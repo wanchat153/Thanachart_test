@@ -1,0 +1,35 @@
+# เอกสารภายในทีม/AI agent — ไม่ขึ้น repo
+# ต้องเขียนเป็น docs/* ไม่ใช่ docs/ ไม่งั้น git ไม่เข้าไปดูข้างในเลย แล้ว !docs/BRD.md จะไม่มีผล
+docs/*
+!docs/BRD.md
+frontend/CLAUDE.md
+frontend/AGENTS.md
+CLAUDE.md
+
+# ---------- Secrets ----------
+# ครอบทุกสำเนา รวมที่ MSBuild ก๊อปไปไว้ใน bin/ ตอน build
+**/appsettings.Development.json
+
+# ---------- .NET build output ----------
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# ---------- IDE / editor ----------
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ---------- OS ----------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

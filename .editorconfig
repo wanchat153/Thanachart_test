@@ -1,0 +1,55 @@
+root = true
+
+[*]
+charset = utf-8
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# จงใจไม่ตั้ง end_of_line:
+# โค้ดที่เขียนมือเป็น LF แต่ไฟล์ที่ `dotnet ef migrations add` สร้างให้เป็น CRLF
+# ถ้าบังคับ EOL ทุกครั้งที่เพิ่ม migration ใหม่ `dotnet format --verify-no-changes` จะแดงทันที
+# โปรเจคนี้ยังไม่ใช้ git จึงไม่มีปัญหา diff เพี้ยนจาก EOL ให้ต้องแก้
+
+[*.{ts,tsx,js,jsx,mjs,cjs,json,jsonc,yml,yaml,css,md}]
+indent_size = 2
+
+[*.{csproj,props,targets,config}]
+indent_size = 2
+
+[*.md]
+# markdown ใช้ช่องว่างท้ายบรรทัดสองตัวเพื่อขึ้นบรรทัดใหม่
+trim_trailing_whitespace = false
+
+# ─────────────────────────────────────────────────────────────
+# C# — ตั้งค่าให้ตรงกับสไตล์ที่ dotnet format บังคับอยู่แล้ว
+# ─────────────────────────────────────────────────────────────
+[*.cs]
+indent_size = 4
+
+# using ของ System มาก่อนเสมอ และไม่เว้นบรรทัดคั่นกลุ่ม
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = false
+
+# แนะนำ (ไม่บังคับ) ให้ใช้ var เมื่อชนิดชัดเจนจากฝั่งขวา
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_for_built_in_types = false:suggestion
+
+# วงเล็บปีกกาขึ้นบรรทัดใหม่ (สไตล์ Allman ตาม convention ของ .NET)
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+
+# ความปลอดภัย: เตือนเมื่อลืม await
+dotnet_diagnostic.CS4014.severity = error
+
+# ความถูกต้องของเงิน: เตือนการเปรียบเทียบ floating point
+dotnet_diagnostic.CA1305.severity = suggestion
+
+# ─────────────────────────────────────────────────────────────
+# โค้ดที่เครื่องสร้าง (ห้ามแก้ด้วยมือ) — `dotnet ef` เขียนไฟล์เป็น UTF-8 พร้อม BOM
+# ถ้าบังคับ charset จะแดงทุกครั้งที่เพิ่ม migration ใหม่ ทั้งที่เราไม่ได้ทำอะไรผิด
+# ─────────────────────────────────────────────────────────────
+[**/Migrations/*.cs]
+charset = utf-8-bom
