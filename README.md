@@ -196,4 +196,4 @@ npm run build         # next build
 
 ## ยังไม่มีในเฟสนี้
 
-ระบบ auth/login · หน้า admin · ประวัติคำสั่งซื้อ · ยกเลิก/คืนสินค้า · git repository + CI
+ระบบ auth/login · หน้า admin
