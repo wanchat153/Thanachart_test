@@ -65,7 +65,6 @@ Backend อ่าน connection string จาก [`Thanachart_test/appsettings.D
 
 > ⚠️ **`User Id=` ไม่ใช่ `ID=`** — SQL Server ไม่รู้จัก keyword `ID` และจะฟ้อง error ที่อ่านไม่รู้เรื่อง
 > ⚠️ localhost/SQLEXPRESS ต้องมี `TrustServerCertificate=True` ไม่งั้นเชื่อมต่อไม่ได้
-> 🔐 ไฟล์นี้มีรหัสผ่านจริง — **ถ้าวันหน้าจะใช้ git ต้องสร้าง `.gitignore` ที่ ignore ไฟล์นี้ก่อน commit แรก** ไม่งั้นรหัสผ่านติดเข้า repo ถาวร
 
 บัญชีที่ใช้ต้องมีสิทธิ์ `dbcreator` (หรือ `sysadmin`) เพราะ migration เป็นคนสร้างฐานข้อมูลให้
 
@@ -100,10 +99,6 @@ sqlcmd -S "localhost\SQLEXPRESS" -U <user> -P <password> -d Shopping_test -I -Q 
 - API: <http://localhost:5126> · Swagger UI: <http://localhost:5126/swagger> (เฉพาะ `ASPNETCORE_ENVIRONMENT=Development`)
 - Frontend คุยกับ `http://localhost:5126` เสมอ จึงใช้ได้กับทั้งสองวิธี
 
-> ⚠️ **`app.UseHttpsRedirection()` ถูกปิดไว้ตอน Development โดยเจตนา** — เพราะ profile `https` ของ Visual Studio เปิดทั้งสอง port
-> ถ้าเปิด redirect ไว้ ทุก request ที่เข้า `:5126` จะได้ `307` เด้งไป `:7115` แล้ว **CORS preflight ของเบราว์เซอร์จะตาย** (สเปกห้ามตาม redirect ตอน `OPTIONS`) ทำให้กดชำระเงินไม่ได้ ทั้งที่ backend รันอยู่ปกติ
-> **production ยังบังคับ HTTPS เหมือนเดิม** (ดู [Program.cs](Thanachart_test/Program.cs))
-
 ### 4. รัน frontend
 
 ```bash
@@ -129,7 +124,6 @@ dotnet test Thanachart_test.sln -c Release
 ```
 
 > ⚠️ `dotnet test` ต่อ **SQL Server จริง** และสร้าง/ลบฐานข้อมูล `Shopping_test_xunit` ทุกครั้ง
-> ไม่แตะ `Shopping_test` ของจริง · ตั้ง `SHOPPING_TEST_CONNECTION` เพื่อชี้เซิร์ฟเวอร์อื่นได้
 
 ### Frontend
 ```bash
