@@ -53,7 +53,6 @@
 ### 1. ตั้ง connection string
 
 Backend อ่าน connection string จาก [`Thanachart_test/appsettings.Development.json`](Thanachart_test/appsettings.Development.json)
-(หรือ environment variable `ConnectionStrings__Default` ซึ่งชนะไฟล์ config)
 
 ```json
 {
